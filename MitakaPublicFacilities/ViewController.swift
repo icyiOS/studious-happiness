@@ -32,6 +32,7 @@ class ViewController: UIViewController {
                                       subtitle: facility.info,
                                       coordinate: CLLocationCoordinate2D(latitude: Double(facility.lng)!,
                                                                          longitude: Double(facility.lat)!),
+                                      addr: facility.addr,
                                       cat3: facility.cat3)
         })
         
