@@ -12,6 +12,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    let annotationIdentifier = "annotationIdentifier"
     
     let initialLocation = CLLocation(latitude: 35.70247739,
                                      longitude: 139.58017613)
@@ -23,11 +24,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         centerMapOnLocation(location: initialLocation)
         
+        mapView.register(FacilityAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: annotationIdentifier)
+        
         annotations = loadDataFromFile().map({ facility in
             return FacilityAnnotation(title: facility.name,
                                       subtitle: facility.info,
                                       coordinate: CLLocationCoordinate2D(latitude: Double(facility.lng)!,
-                                                                         longitude: Double(facility.lat)!))
+                                                                         longitude: Double(facility.lat)!),
+                                      cat3: facility.cat3)
         })
         
         mapView.addAnnotations(annotations)
@@ -57,3 +62,10 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier,
+                                                                   for: annotation)
+        return annotationView
+    }
+}

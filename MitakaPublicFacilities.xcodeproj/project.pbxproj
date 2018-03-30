@@ -15,6 +15,7 @@
 		2898F258206E5C0800206659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2898F256206E5C0800206659 /* LaunchScreen.storyboard */; };
 		2898F260206E607300206659 /* FacilityAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2898F25F206E607300206659 /* FacilityAnnotation.swift */; };
 		2898F262206E8F6200206659 /* FacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2898F261206E8F6200206659 /* FacilityModel.swift */; };
+		28FEDEAB206E98200025F412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FEDEAA206E98200025F412 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2898F259206E5C0800206659 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2898F25F206E607300206659 /* FacilityAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityAnnotation.swift; sourceTree = "<group>"; };
 		2898F261206E8F6200206659 /* FacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityModel.swift; sourceTree = "<group>"; };
+		28FEDEAA206E98200025F412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				2898F24F206E5C0800206659 /* ViewController.swift */,
 				2898F25F206E607300206659 /* FacilityAnnotation.swift */,
 				2898F261206E8F6200206659 /* FacilityModel.swift */,
+				28FEDEAA206E98200025F412 /* Utils.swift */,
 				2898F251206E5C0800206659 /* Main.storyboard */,
 				2898F254206E5C0800206659 /* Assets.xcassets */,
 				2898F256206E5C0800206659 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FEDEAB206E98200025F412 /* Utils.swift in Sources */,
 				2898F262206E8F6200206659 /* FacilityModel.swift in Sources */,
 				2898F260206E607300206659 /* FacilityAnnotation.swift in Sources */,
 				2898F250206E5C0800206659 /* ViewController.swift in Sources */,
