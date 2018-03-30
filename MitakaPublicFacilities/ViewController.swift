@@ -16,16 +16,21 @@ class ViewController: UIViewController {
     let initialLocation = CLLocation(latitude: 35.70247739,
                                      longitude: 139.58017613)
     
+    var annotations: [FacilityAnnotation]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         centerMapOnLocation(location: initialLocation)
         
-        let kichijoji = FacilityAnnotation(title: "吉祥寺",
-                                           subtitle: "京王井の頭線",
-                                           coordinate: CLLocationCoordinate2D(latitude: 35.70247739,
-                                                                              longitude: 139.58017613))
-        mapView.addAnnotation(kichijoji)
+        annotations = loadDataFromFile().map({ facility in
+            return FacilityAnnotation(title: facility.name,
+                                      subtitle: facility.info,
+                                      coordinate: CLLocationCoordinate2D(latitude: Double(facility.lng)!,
+                                                                         longitude: Double(facility.lat)!))
+        })
+        
+        mapView.addAnnotations(annotations)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +42,18 @@ class ViewController: UIViewController {
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func loadDataFromFile() -> [Facility] {
+        let decoder = JSONDecoder()
+        do {
+            let url = Bundle.main.url(forResource: "facilities", withExtension: "json")!
+            let data = try Data(contentsOf: url)
+            let result = try decoder.decode([Facility].self, from: data)
+            return result
+        } catch {
+            return []
+        }
     }
 }
 
