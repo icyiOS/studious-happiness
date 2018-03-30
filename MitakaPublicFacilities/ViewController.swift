@@ -13,13 +13,19 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let initialLocation = CLLocation(latitude: 35.688835,
-                                     longitude: 139.562163)
+    let initialLocation = CLLocation(latitude: 35.70247739,
+                                     longitude: 139.58017613)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         centerMapOnLocation(location: initialLocation)
+        
+        let kichijoji = FacilityAnnotation(title: "吉祥寺",
+                                           subtitle: "京王井の頭線",
+                                           coordinate: CLLocationCoordinate2D(latitude: 35.70247739,
+                                                                              longitude: 139.58017613))
+        mapView.addAnnotation(kichijoji)
     }
 
     override func didReceiveMemoryWarning() {
